@@ -57,7 +57,8 @@ const resetView = async (req,res) => {
 
 const postResetView = async (req,res) => {
     try {
-       var {username, newPassword, confirmNewPassword, oldPassword} = req.body;
+        var username = req.body.username.toLowerCase()
+       var { newPassword, confirmNewPassword, oldPassword} = req.body;
        const userInDB = await dbCode.getUserByUsername(username);
 
        console.log();
