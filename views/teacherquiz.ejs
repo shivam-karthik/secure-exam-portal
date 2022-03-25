@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+     <title>Exam Portal</title>
+
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <!-- bootstrap-css-plugin -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+     <!-- google fonts -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Secular+One&display=swap" rel="stylesheet">
+    <!-- styles.css -->
+    <link rel="stylesheet" href="/css/styles.css">
+
+    <!-- Scrollbar Custom CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+
+  </head>
+  <body> 
+    <% if(quiz[0] === undefined){ %>
+      <h1>404! Content Not Found</h1>
+    <% } %>
+
+    <% if(quiz[0] !== undefined){ %>
+  <!-- routes section -->
+
+      <div class="wrapper" id="testsetter">
+   <!-- sidebarr -->
+             <nav id="sidebar">
+               <div class="sidebar-header">
+                 <h3>OXA Portal</h3>
+               </div>
+
+               <ul class="list-unstyled components">
+                 <h2>QUIZ Name</h2>
+                 <!-- <li class='active'>
+                   <a href="#QuestionsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Questions</a>
+                   <ul class="collapse list-unstyled" id="QuestionsSubmenu">
+                     <li>
+                       <a href="#">Solved</a>
+                     </li>
+                     <li>
+                       <a href="#">Marked for review</a>
+                     </li>
+                     <li>
+                       <a href="#">Skipped</a>
+                     </li>
+                   </ul>
+                   </li> -->
+
+                   <li>
+                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Instructions</a>
+                     <ul class="collapse list-unstyled" id="pageSubmenu">
+                       <li>
+                         <a href="#">About Test</a>
+                       </li>
+                       <li>
+                         <a href="#">Quiz Pattern</a>
+                       </li>
+                     </ul>
+                     </li>
+
+                   </ul>
+                  </li>
+               </ul>
+
+             </nav>
+
+
+   <!-- content section wrapped inside a
+   flexbox div with className wrapper this content is targetted in js
+ on click event and is given a className active when toggle button is clicked
+for setting scrollbar hidden-->
+ <div id="content">
+   <nav class="navbar navbar-expand-lg navbar-light bg-grey">
+      <div class="container-fluid">
+
+      <!-- navigation bar -->
+
+
+        <button type="button" id="sidebarCollapse" class="btn btn-info">
+            <i class="fas fa-align-left"></i>
+            <span>QUIZ STATUS</span>
+        </button>
+
+        <!-- TO BE ADDED A CUSTOM TIMER
+
+       <p id="timer"  style="text-align:right;border-style:groove;padding:2%; font-size:1.5rem;color:#FF6464;"></p> -->
+
+        </div>
+
+      </nav>
+      
+      
+      <form class=""  method="post" style="margin:20px; font-family: serif;font-size: 1.5rem;">
+        <div class="line"></div>
+        <%  quiz.forEach(function(que){ %>
+             <h2><%= que.question %></h2>
+             <h2></h2>
+             <input type="radio" name="option1" ><%= que.option1 %></input>
+             <br>
+             <input type="radio" name="option2"><%= que.option2 %></input>
+             <br>
+             <input type="radio" name="option3"><%= que.option3 %></input>
+             <br>
+             <input type="radio" name="option4"><%= que.option4 %></input>
+             <br>
+             <div class="line"></div>
+        <% }) %>
+        
+      </form>
+      
+
+
+    </div>
+
+  </div>
+  <% } %>
+
+
+
+
+
+  <!-- jQuery CDN - Slim version (=without AJAX) -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <!-- Popper.JS -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+      <!-- Bootstrap JS -->
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+      <!-- jQuery Custom Scroller CDN -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+
+   <script src="/js/index.js"></script>
+
+  </body>
+</html>

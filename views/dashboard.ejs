@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+     <title>Exam Portal</title>
+     <!-- font-awesome -->
+     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+     <!-- bootstrap-css-plugin -->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+     <!-- google fonts -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Secular+One&display=swap" rel="stylesheet">
+     <!-- styles.css -->
+     <link rel="stylesheet" href="/css/styles.css">
+
+  </head>
+  <body>
+    <section id="nav">
+    <div class="container-fluid">
+
+    <!-- navigation bar -->
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-grey">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link fas fa-user" style='font-size:1.2rem; background-color:#FFE162; border-radius:0.3rem; margin-top:0.2%;' href="/myaccount/user/<%= userid %>">My Account</a>
+
+            </li>
+
+          <!-- <li class="nav-item">
+              <a class="nav-link" href="#">Help</a>
+            </li> -->
+            <li class="nav-item">
+              <a class="nav-link" href="/contact">Contact Us</a>
+            </li>
+
+            <li class="nav-item active">
+              <a class="nav-link" href="/dashboard">Dashboard Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">Log Out</a>
+            </li>
+
+
+        </ul>
+
+      </div>
+    </nav>
+  </div>
+  </section>
+
+  <% if(typeof alertMessage != 'undefined'){ %>
+    <div class="alert alert-dismissible alert-danger">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <h4 class="alert-heading"><%= alertMessage %></h4>  
+    </div>
+    <%}%>
+    
+  <section id="routes">
+    <div class="container">
+
+        <div class="row">
+
+           <div class="col-lg-6">
+               <h1 class="floating-cont">Welcome to Your Account <%= username %></h1>
+               <p class="inv-p" style="color:#EEEEEE;"></p>
+           </div>
+           <div class="col-lg-6">
+             <% if (designation == "Teacher"){ %>
+                 <a class="bton" type="button" href="/setquiz">Create Test</a>
+                 <a class="bton" type="button" href="/quizes">Quizes Set By You</a>
+                 <a class="bton" type="button" href="/results">Results And Scores</a>
+              <% } %>
+              <% if (designation == "Student"){ %>
+                 <a class="bton" type="button" href="/quizes/<%= username %>">Give Test</a>
+                <a class="bton" type="button" href="/result/<%= designation %>">Results And Scores</a>
+              <% } %>
+                <a class="bton" type="button" href="#">Help</a>
+           </div>
+        </div>
+      </div>
+<!-- bootstrap script tag -->
+   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+   <script type="text/javascript">
+    const myTimeout = setTimeout(function(){
+      document.getElementsByClassName('inv-p')[0].innerHTML = "Great To See You Back!!!!";
+    }, 5000);
+ </script>
+  </body>
+</html>

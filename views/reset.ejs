@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title> Password Reset </title>
+
+<!-- bootstrap-css-plugin -->
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<!-- font-awesome -->
+
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+<!-- google fonts -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Secular+One&display=swap" rel="stylesheet">
+
+<!-- styles.css -->
+
+<link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+
+
+
+
+
+<body>
+
+
+
+
+
+
+
+<section id="singup-route">
+
+
+
+          <h1>Online Exam Portal</h1>
+
+      <center> <p class="floating-cont" style="color:#EEEEEE;"> Password Reset </p> </center>
+
+      <!-- singup form -->
+
+      <div class="login-form">
+
+        <% if(typeof alertMessage != 'undefined'){ %>
+          <div class="alert alert-dismissible alert-danger">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <h4 class="alert-heading"><%= alertMessage %></h4>  
+          </div>
+          <%}%>
+
+
+          <form class="form-login" action="/reset-password" method="post">
+
+              <div class="container1">
+                <input type="hidden" name="_csrf" value=<%= csrfToken %>>
+
+                  <label>Enter Email: </label>
+
+                  <input type="text" placeholder="Enter Your Email" name="username" required>
+
+                  <label>Enter Old Password: </label>
+
+                  <input type="text" placeholder="Old Password" name="oldPassword" required>
+
+                  <label>Enter New Password : </label>
+
+                  <input type="password" placeholder="New Password" name="newPassword" required>
+
+                  <label>Confirm New Password : </label>
+
+                  <input type="password" placeholder="Confirm New Password" name="confirmNewPassword" required>
+                  <button class="bton" type="submit">Reset</button></button>
+                  <a class="home-icon fas fa-home fa-4" href="/"></a>
+              </div>
+
+          </form>
+
+
+
+     </div>
+
+</section>
+
+
+
+
+
+<!-- FOOTER -->
+
+ <section id="footer">
+
+
+
+   <footer>
+
+     <p>&copy; oxaportal.org</p>
+
+   </footer>
+
+
+
+ </section>
+
+
+
+
+
+
+<!-- bootstrap script tag -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

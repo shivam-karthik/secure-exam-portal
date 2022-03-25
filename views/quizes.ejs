@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+     <title>Exam Portal</title>
+     <!-- font-awesome -->
+     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+     <!-- bootstrap-css-plugin -->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+     <!-- google fonts -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Secular+One&display=swap" rel="stylesheet">
+     <!-- styles.css -->
+     <link rel="stylesheet" href="/css/styles.css">
+
+  </head>
+  <body>
+    <section id="nav">
+    <div class="container-fluid">
+
+    <!-- navigation bar -->
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-grey">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+
+
+            </li>
+
+          <!-- <li class="nav-item">
+              <a class="nav-link" href="#">Help</a>
+            </li> -->
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact Us</a>
+            </li>
+
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">Log Out</a>
+            </li>
+
+
+        </ul>
+
+      </div>
+    </nav>
+  </div>
+  </section>
+  
+    
+  <section id="routes">
+
+
+    <% if(message){ %>
+      <div class="alert alert-dismissible alert-danger container">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <h4 class="alert-heading"><%= message %></h4>  
+      </div>
+    <%}%>
+  
+    <% if(typeof quizes[0] == 'undefined'){ %>
+      <div class="alert alert-dismissible alert-danger container">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <h4 class="alert-heading">No Quizes set yet!! Set one Now</h4>  
+      </div>
+    <%}%>
+
+    
+    <h1>Quizes Set By You</h1>
+
+  <% if(typeof quizes != 'undefined'){ %>
+    
+      <div class="container" style="text-align: center;">
+        
+
+        <%  quizes.forEach(function(quiz){ %>
+
+          <div class="card text-white bg-warning mb-3" style="max-inline-size: 10rem; max-height:rem; display: inline-block; padding: 10px; margin: 5px;" >
+            <div class="card-header" >QuizId : <%= quiz.QuizId %> </div>
+            <div class="card-body">
+              <a href="/quiz/<%= quiz.QuizId %>"><p class="card-text"><%= quiz.CourseName %></p></a>
+              <br>
+              
+              <p >Status: <%= quiz.Status %></p>
+              <a href="/quiz/<%= quiz.QuizId %>/updateStatus">change Status</a>
+              <br>
+              <a href="/quiz/<%= quiz.QuizId %>/delete">delete</a>
+            </div>
+          </div>
+
+          
+        
+        <% }) %>
+
+        </div>
+    </section>
+  <%}%>
+  
+<!-- bootstrap script tag -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

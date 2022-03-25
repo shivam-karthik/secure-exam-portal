@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+     <title>Set Quiz</title>
+
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <!-- bootstrap-css-plugin -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+     <!-- google fonts -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Secular+One&display=swap" rel="stylesheet">
+    <!-- styles.css -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Scrollbar Custom CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+
+  </head>
+  <body oncopy="return false" onpaste="return false" oncut="return false">
+     
+
+
+    
+
+
+    <div class="test-form" style="position:fixed; z-index: 100; border: 3px solid green; background-color: #F0F0F0;margin: 15% 30% 8% 35%;
+      border-radius: 1rem; padding:3%;box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;">
+      <h2>Set Test Details</h2>
+      <form  method="post" >
+        <input type="hidden" name="_csrf" id="_csrf" value=<%= csrfToken %>>
+        <label for="">Course Name</label>
+        <input type="text" name="courseName" id="courseName" value="" style="background-color:#E2D784">
+        <input type="submit" class="bton"  id="collapse-form" value="set">
+      </form>
+
+    </div>
+
+  <div id="blurred-untill-clicked" style="filter: blur(4px);">
+
+
+
+
+
+
+
+    <!-- routes section -->
+
+        <div class="wrapper" id="testsetter">
+     <!-- sidebarr -->
+               <nav id="sidebar">
+                 <div class="sidebar-header">
+                   <h3>OXA Portal</h3>
+                 </div>
+
+                 <ul class="list-unstyled components">
+                   <h2>QUIZ ID</h2>
+                   <li class='active'>
+                     <a href="#QuestionsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">See Entire Test</a>
+                     <ul class="collapse list-unstyled" id="QuestionsSubmenu">
+                       <li>
+                         <a href="">Questions Set</a>
+                       </li>
+                       <li>
+                         <a href="">Edit Test</a>
+                       </li>
+                     </ul>
+                    </li>
+
+                     <li>
+                       <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Go to Dashboard</a>
+                       <ul class="collapse list-unstyled" id="pageSubmenu">
+                         <li>
+                           <a href="/dashboard">Dashboard</a>
+                         </li>
+                         <li>
+                           <a href="/about">About us</a>
+                         </li>
+                       </ul>
+                    </li>
+
+                    <li>
+                      <a id="showInstructions" href="javascript: return false;">Instruction</a>
+                   </li>
+
+
+                 </ul>
+
+               </nav>
+
+
+     <!-- content section wrapped inside a
+     flexbox div with className wrapper this content is targetted in js
+   on click event and is given a className active when toggle button is clicked
+  for setting scrollbar hidden-->
+   <div id="content">
+     <nav class="navbar navbar-expand-lg navbar-light bg-grey">
+        <div class="container-fluid">
+
+        <!-- navigation bar -->
+
+
+          <button type="button" id="sidebarCollapse" class="btn btn-info">
+              <i class="fas fa-align-left"></i>
+              <span>QUIZ DETAILS</span>
+          </button>
+
+
+          </div>
+
+        </nav>
+
+        <div class='responseDiv' style="font-size:2rem;padding:3%;font-family:serif;margin:8px; color: #FF6464;"></div>
+
+        <div class="line"  style="padding:6%;">
+
+          <form id="queForm" method="post">
+                <label for="">Type Question</label>
+                <input type="text" id="que" name="question" placeholder="Question">
+                <label for="">Options</label>
+                <input type="hidden" name="_csrf" id="_csrf" value=<%= csrfToken %>>
+                <input type="text" name="opt1" id="opt1" placeholder="Option 1">
+                <br>
+                <input type="text" name="opt2" id="opt2" placeholder="Option 2">
+                <br>
+                <input type="text" name="opt3" id="opt3" placeholder="Option 3">
+                <br>
+                <input type="text" name="opt4" id="opt4" placeholder="Option 4">
+                <br>
+                <label for="">Correct Option</label>
+                <br>
+                <input type="radio" name="ans" id="op1" ><label for=""> option 1</label>
+                <input type="radio" name="ans" id="op2" ><label for=""> option 2</label>
+                <input type="radio" name="ans" id="op3" ><label for=""> option 3</label>
+                <input type="radio" name="ans" id="op4" ><label for=""> option 4</label>
+                <input type="hidden" id="ans" name="answer" placeholder="Correct Option">
+                <br>
+
+               <input type="submit" id="addQuestion" style="width:25%;" class="bton" value="Add Question">
+               <br>
+              
+            </form>
+          <a href="/dashboard" style="width:25%;" class="bton" type="submit" name="button">Set Test</a>
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- jQuery CDN - Slim version (=without AJAX)
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+      <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+      <!-- Popper.JS -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+      <!-- Bootstrap JS -->
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+      <!-- jQuery Custom Scroller CDN -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+
+   <script src="js/index.js"></script>
+   <script>
+   $(document).ready(function() {
+    //  sending csrf header with ajax
+      $.ajaxSetup({
+          headers: {'X-CSRF-Token': $('#_csrf').attr('value')}
+      });
+
+      $("#blurred-untill-clicked").addClass("disable-div");
+      $("#blurred-untill-clicked").css("overflow","hidden")
+  
+
+      $("#collapse-form").on('click', function(e) {
+ 
+          $("#blurred-untill-clicked").toggleClass("disable-div");
+          $("#blurred-untill-clicked").css('filter','blur(0px)');
+          $("#blurred-untill-clicked").css("overflow","auto");
+          $('.test-form').css('visibility', 'hidden');
+          
+          
+          
+            var courseName = $("#courseName").val();
+             $.ajax({
+               url: "/setquiz",
+               dataType: "JSON",
+               data: {courseName:courseName},
+               type: "POST",
+               complete: function(data){
+  
+                    // data is the object that you send form the server by 
+                    // res.jsonp();
+                    // here data = {success : true}
+                    if(data.status == 200){
+                        alert("Quiz Added to your Dashboard");
+                      }
+                    },
+                    error : function (data) {
+                      alert("Oops! Something went wrong.Try Again!");
+                    }
+             });
+        
+          e.preventDefault();
+          // $('.test-form').remove();
+          
+          
+                     
+      });
+
+      
+
+      $("#showInstructions").on('click', function() {
+        $("#blurred-untill-clicked").css('filter','blur(1px)');
+        const div = document.createElement("div");
+        div.style.width = "500px";
+        div.style.height = "300px";
+        div.style.background = "#F0F0F0";
+        div.style.color = "black";
+        div.style.zIndex = "100";
+        div.style.borderRadius= "1rem";
+        div.style.boxShadow = "blue 0px 20px 30px -10px;";
+        div.style.position = "fixed";
+        div.style.padding = "20px";
+        div.style.border= "3px solid green";
+        div.style.margin ="5%";
+        div.innerHTML = "The test must have atleast 5 questions below which you cant set a test!   All four options are mandatory to set! You can either self evaluate or add the correct answer for auto evaluation";
+        div.className= "temp";
+        document.body.prepend(div);
+
+
+        const button = document.createElement("button");
+        button.innerHTML = "❌";
+        button.id = "tempButton";
+        button.style.width = "10%";
+        button.style.borderRadius = "100%";
+        button.className = "bton";
+        button.style.display = "block";
+        button.style.position = "relative";
+        button.style.marginRight = "10px";
+        document.getElementsByClassName("temp")[0].prepend(button);
+
+        $("#tempButton").on('click', function(event){
+          event.preventDefault();
+          $("#blurred-untill-clicked").css('filter','blur(0px)');
+          $('.temp').remove();
+        });
+      });
+
+      $("#addQuestion").on('click',function(e){
+
+        // this para add answer to the aswer input
+        $('#op1').val($('#opt1').val())
+        console.log($('#op1').val());
+        $('#op2').val($('#opt2').val())
+        $('#op3').val($('#opt3').val())
+        $('#op4').val($('#opt4').val())
+        $('#ans').val($('input[name=ans]:checked').val())
+        console.log($('#ans').val($('input[name=ans]:checked').val()));
+
+
+
+        // $(".test-form").addClass("disable-div");
+        var courseName = $("#courseName").val();
+        var question = $("#que").val();
+        var option1 = $("#opt1").val();
+        var option2 = $("#opt2").val();
+        var option3 = $("#opt3").val();
+        var option4 = $("#opt4").val();
+        var answer = $("#ans").val();
+             $.ajax({
+               url: "/addquestion",
+               data: {question:question,option1:option1,option2:option2,option3:option3,option4:option4,answer:answer,courseName:courseName},
+               type: "POST",
+               complete: function(data){
+                if(data.status == 200){
+                        $(".responseDiv").html("Question Added").fadeIn(2000).fadeOut(2000);
+                        $("#queForm")[0].reset();
+                      }
+                    },
+                    error : function (result) {
+                      alert("Oops! Something went wrong.Try Again!");
+                    }
+             });
+        
+          e.preventDefault();
+      });
+
+      $('#addQuestion').on('click',function(){
+        
+      
+      })
+
+      
+
+    })
+      
+   </script>
+
+  </body>
+</html>

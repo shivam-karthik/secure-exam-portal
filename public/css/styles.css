@@ -1,0 +1,382 @@
+/* common elements */
+body{
+  background-color:#FAEDC6;
+  align-content: center;
+  font-family: Calibri, Helvetica, sans-serif;
+}
+
+h1, h3{
+  font-family: 'Secular One', sans-serif;
+  font-size: 3rem;
+  font-weight:bold;
+  color: #FFD32D;
+  text-align: center;
+  text-shadow: 2px 2px #ff0000;
+}
+
+p{
+  font-family: sans-serif;
+  font-size: 1.2rem;
+  font-weight:bold;
+  color: black;
+  text-align: center;
+
+}
+
+h2{
+  font-family: sans-serif;
+  font-size: 1.1em;
+  font-weight: 300;
+  line-height: 1.7em;
+  color: #999;
+  text-align: left;
+}
+
+/* navbar section */
+#nav{
+  width:100%;
+  font-family: 'Secular One', sans-serif;
+  background-color:#FF6464;
+  border-radius: 2px;
+}
+
+.navbar-light .navbar-brand{
+  font-family: 'Secular One', sans-serif;
+  font-size: 1.5rem;
+  font-weight:bolder;
+  color: black;
+}
+
+.nav-link{
+  font-weight: bolder;
+  color: black !important;
+}
+
+
+/* routes section */
+#routes, #singup-route, #login-route{
+  padding: 15%;
+  margin:auto;
+  background-image: url("https://media.istockphoto.com/photos/setting-the-page-on-fire-with-some-hard-work-picture-id492198113?b=1&k=20&m=492198113&s=170667a&w=0&h=CBWxkL9fuZlpUKhnYVsWzcuGGrXiYTs7kxYgOlsSUoY=");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position:relative;
+  min-height: 100vh;
+
+}
+
+#about-route{
+  background-image: url("https://media.istockphoto.com/photos/setting-the-page-on-fire-with-some-hard-work-picture-id492198113?b=1&k=20&m=492198113&s=170667a&w=0&h=CBWxkL9fuZlpUKhnYVsWzcuGGrXiYTs7kxYgOlsSUoY=");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position:relative;
+  min-height: 100vh;
+}
+
+#testsetter{
+  background-color: #FAEDC6;
+  position:relative;
+  min-height: 100vh;
+}
+
+#footer {
+  padding-top: 0.3%;
+  background-color: #FF6464;
+  padding-bottom: 0.2%
+}
+
+/* home icon */
+.home-icon{
+  margin: 10px 0px;
+  color:#FF5403;
+  font-size: 2rem;
+}
+
+.home-icon:hover{
+   font-size: 2rem;
+   transform: scale(0.9);
+  transition: all 0.2s ease-out;
+}
+
+
+/* just an attempt to animate a div */
+/* bingo success */
+@keyframes float {
+	0% {
+		transform: scale(0.9);
+	}
+	50% {
+		transform: scale(1.1);
+	}
+	100% {
+		transform: translatex(0.9);
+	}
+}
+
+.floating-cont{
+  transform: translatey(0px);
+	animation: float 6s ease-in-out infinite;
+  /* to make animation of the selector iterate only once */
+  animation-iteration-count: 1;
+}
+
+/* animation code ends */
+
+
+/*  css code of routes with a sidebar */
+.wrapper{
+  display: flex;
+  width:100%;
+}
+
+#sidebar{
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 1;
+  background: #FFE162;
+  color: #FF6464;
+  transition: all 0.3s;
+}
+
+
+/* creating a custom active class for sidebar section
+to be targeted on click event on the toggle button using jquery*/
+#sidebar.active {
+    margin-left: -250px;
+}
+
+#sidebar .sidebar-header {
+    padding: 10px;
+    background: #FF6464;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #47748b;
+}
+
+#sidebar ul h2 {
+    color: #FF6464;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+
+#sidebar ul li a:hover {
+    color: #FFE162;
+    background: #FF6464;
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #FFE162;
+}
+
+/* taking arrow symbol originating from dropdown-toggle bootstrap class
+ out of html flow and setting it aside to right from immediate left*/
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+
+
+#content {
+    width: calc(100% - 250px);
+    padding: 40px;
+    min-height: 100vh;
+    transition: all 0.3s;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+/* custom active class to be given on click event */
+#content.active {
+    width: 100%;
+    height:100vh;
+}
+
+
+.line {
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px hidden;
+    margin: 40px 0;
+}
+
+
+/* end of sidebar realted routes */
+
+
+
+
+
+
+/* css of rrt */
+
+.bton {
+  background-color: #008E89;
+  
+  width: 100%;
+  color: #FFBD35;
+  display: inline-block;
+  padding: 5px;
+  margin: 20px auto 20px auto;
+  border: 3px solid grey;
+  cursor: progress;
+  border-radius: 0.3rem;
+  text-align: center;
+  font-family: sans-serif;
+
+}
+.bton:hover {
+  background-color: #4FBDBA;
+  color:#008E89;
+  padding: 4px;
+  opacity: 90%;
+  border-radius: 0.3rem;
+  text-align: center;
+   transform: scale(1.1);
+  transition: all 0.2s ease-out;
+
+}
+.form-login {
+  border: 3px solid green;
+
+}
+input[type=text], input[type=password],textarea {
+  width: 100%;
+  margin: 4px 0;
+  padding: 8px 20px;
+  display: inline-block;
+  border: 3px solid green;
+  box-sizing: border-box;
+  border-radius:0.3rem;
+
+  }
+  .cls{
+    font-weight: bolder;
+    font-style: oblique;
+    color: #ffff22;
+  }
+
+.cancelbtn {
+    background-color: #ffff22;
+    width: auto;
+    padding: 4px;
+    margin: 10px 5px;
+    border-radius: 0.3rem;
+    }
+.cancelbtn:hover {
+  background-color: #32fe42;
+  color:blue;
+  opacity: 0.7;
+  border-radius: 0.3rem;
+}
+
+.login-form{
+      margin: 5% 35% 5% 35%;
+      border-radius: 1rem;
+
+}
+
+
+ .container1 {
+  background-image: url("img4.jpg");
+  background-repeat: no-repeat;
+  color:#ffffff;
+  padding: 5%;
+  border: 3px solid #ffffff;
+  border-radius: 0.7rem;
+
+}
+
+
+
+
+.form-login{
+  border-radius: 0.7rem;
+}
+
+
+@media screen and (max-width: 655px)
+{
+   .login-form{
+       width:100%;
+       margin:0;
+       padding: 5%
+   }
+
+   .container1{
+     margin: -10px;
+      }
+
+      #sidebar {
+    margin-left: -250px;
+     }
+
+     #sidebar.active {
+        margin-left: 0;
+    }
+
+    #content {
+        width: 100%;
+    }
+    #content.active {
+        width: calc(100% - 250px);
+    }
+
+    #sidebarCollapse span {
+    display: none;
+    }
+
+  .bton:hover {
+  background-color: #4FBDBA;
+  color:#008E89;
+  opacity: 90%;
+  border-radius: 0.3rem;
+  text-align: center;
+   transform: scale(0.9);
+  transition: all 0.2s ease-out;
+
+}
+
+
+}
+
+
+
+@media screen and (min-width: 656px)
+{
+   .login-form{
+      margin:auto;
+      width:55%;
+}
+}
+
+.disable-div {
+  pointer-events: none;
+}
+
+
+.card:hover{
+  transform: scale(1.1);
+  transition: all 0.2s ease-out;
+}
