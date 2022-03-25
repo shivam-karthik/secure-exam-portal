@@ -9,8 +9,8 @@ const Logger = require('nodemon/lib/utils/log');
 // auth stratagy
 function initializePassport(passport) {
 
-   const authenticateUser = async (username.toLowerCase(), password, done) => {
-       const user = await dbCode.getUserByUsername(username);
+   const authenticateUser = async (username, password, done) => {
+       const user = await dbCode.getUserByUsername(username.toLowerCase());
        
 
        try{
