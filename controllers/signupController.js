@@ -33,7 +33,7 @@ const signedupView = async (req,res) => {
             var salt = bcrypt.genSaltSync(10);
             var data = {
                 Name: fullname,
-                Username: username,
+                Username: username.toLowerCase(),
                 Password: bcrypt.hashSync(password, salt),
                 Designation : designation
             }
