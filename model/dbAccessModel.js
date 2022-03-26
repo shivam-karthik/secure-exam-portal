@@ -4,7 +4,7 @@ const sqlite3 = require('sqlite3').verbose();
 
 
 
-const db = new sqlite3.Database( './database/oxap.db' ) || process.env.DATABASE_URL;
+const db =  process.env.DATABASE_URL;
 
 class DbModel{
   static setupDbForDev() {
