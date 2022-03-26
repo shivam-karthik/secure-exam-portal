@@ -1,15 +1,19 @@
 require('dotenv').config()
 // requiring sqlite3 for database operations
-const sqlite3 = require('sqlite3').verbose();
+// const sqlite3 = require('sqlite3').verbose();
 
 
 
-const db = new sqlite3.Database(process.env.DATABASE_URL, {
-    dialect: 'postgres',
-    protocol: 'postgres',
-    dialectOptions: {
-        ssl: true
-    }) ;
+// const db = new sqlite3.Database(process.env.DATABASE_URL, {
+//     dialect: 'postgres',
+//     protocol: 'postgres',
+//     dialectOptions: {
+//         ssl: true
+//     }) ;
+
+const { Client } = require('pg')
+const client = new Client()
+const db = await client.connect(process.env.DATABASE_URL)
 
 class DbModel{
   static setupDbForDev() {
