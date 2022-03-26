@@ -11,9 +11,8 @@ require('dotenv').config()
 //         ssl: true
 //     }) ;
 
-const { Client } = require('pg')
-const client = new Client()
-const db = client.connect(process.env.DATABASE_URL)
+const pg= require('pg')
+const db = pg.connect(process.env.DATABASE_URL)
 
 class DbModel{
   static setupDbForDev() {
