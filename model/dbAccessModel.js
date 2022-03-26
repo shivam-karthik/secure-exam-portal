@@ -1,18 +1,11 @@
 require('dotenv').config()
 // requiring sqlite3 for database operations
-// const sqlite3 = require('sqlite3').verbose();
+const sqlite3 = require('sqlite3').verbose();
 
 
 
-// const db = new sqlite3.Database(process.env.DATABASE_URL, {
-//     dialect: 'postgres',
-//     protocol: 'postgres',
-//     dialectOptions: {
-//         ssl: true
-//     }) ;
+const db = new sqlite3.Database('./database/oxap.db') || process.env.DATABASE_URL ;
 
-const pg= require('pg')
-const db = pg.connect(process.env.DATABASE_URL)
 
 class DbModel{
   static setupDbForDev() {
