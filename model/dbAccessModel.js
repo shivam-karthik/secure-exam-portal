@@ -13,7 +13,7 @@ require('dotenv').config()
 
 const { Client } = require('pg')
 const client = new Client()
-const db = await client.connect(process.env.DATABASE_URL)
+const db = client.connect(process.env.DATABASE_URL)
 
 class DbModel{
   static setupDbForDev() {
