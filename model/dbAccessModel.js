@@ -4,7 +4,10 @@ const sqlite3 = require('sqlite3').verbose();
 var pg = require('pg');
 
 
-const db = pg.connect(process.env.DATABASE_URL) ;
+var pool = new pg.Pool()
+
+
+const db = pool.connect(process.env.DATABASE_URL) ;
 
 
 class DbModel{
