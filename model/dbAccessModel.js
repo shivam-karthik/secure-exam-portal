@@ -1,10 +1,10 @@
 require('dotenv').config()
 // requiring sqlite3 for database operations
 const sqlite3 = require('sqlite3').verbose();
+var pg = require('pg');
 
 
-
-const db = new sqlite3.Database('./database/oxap.db') || postgres://kkmgbbifeledgo:a6d082ae050fd19741e81c9f01bc5546d80bc7ba01e5c1aa7095ed030b6f57c5@ec2-44-194-92-192.compute-1.amazonaws.com:5432/d36hgjnvml6b5t ;
+const db = pg.connect(postgres://kkmgbbifeledgo:a6d082ae050fd19741e81c9f01bc5546d80bc7ba01e5c1aa7095ed030b6f57c5@ec2-44-194-92-192.compute-1.amazonaws.com:5432/d36hgjnvml6b5t) ;
 
 
 class DbModel{
