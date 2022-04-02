@@ -2,7 +2,7 @@ require('dotenv').config()
 // requiring sqlite3 for database operations
 const sqlite3 = require('sqlite3').verbose();
 
-const db = new sqlite3('./database/oxap.db');
+const db = new sqlite3.Database('./database/oxap.db');
 
 class DbModel{
   static setupDbForDev() {
